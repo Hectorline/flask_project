@@ -1,0 +1,30 @@
+{% extends "_base.html" %}
+{% block content %}
+  <h1>Welcome, <em>{{ current_user.email }}</em>!</h1>
+ {% if current_user.bucketlist %}
+  <h3>Here your buckets.</h3>
+  {% for buckets in current_user.bucketlist %}
+  <p>{{buckets.name}}</p><br>
+  {% endfor %}
+{% endif %}
+{% endblock %}
+
+
+<!--
+<!doctype html>
+<title>Flaskr</title>
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+<div class=page>
+  <h1>Flaskr</h1>
+  <div class=metanav>
+  {% if not session.logged_in %}
+    <a href="{{ url_for('login') }}">log in</a>
+  {% else %}
+    <a href="{{ url_for('logout') }}">log out</a>
+  {% endif %}
+  </div>
+  {% for message in get_flashed_messages() %}
+    <div class=flash>{{ message }}</div>
+  {% endfor %}
+  {% block body %}{% endblock %}
+</div>-->
